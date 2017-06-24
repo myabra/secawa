@@ -3,6 +3,7 @@ package ru.kraftlab.integration.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
@@ -12,7 +13,8 @@ import javax.sql.DataSource;
  */
 @Configuration
 @ComponentScan({"ru.kraftlab.integration"})
-public class SpringIntegrationConfig {
+@Profile("dev")
+public class DBConfig {
     //todo db properties
 
     @Bean

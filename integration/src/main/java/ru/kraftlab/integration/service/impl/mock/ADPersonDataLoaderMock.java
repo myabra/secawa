@@ -8,12 +8,7 @@ import ru.kraftlab.integration.service.ADPersonDataLoader;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +28,6 @@ public class ADPersonDataLoaderMock implements ADPersonDataLoader {
     @PostConstruct
     @Override
     public void loadData() {
-        checkOutDir();
         clearPersonData();
         loadPersonData();
     }
@@ -106,19 +100,6 @@ public class ADPersonDataLoaderMock implements ADPersonDataLoader {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    private static void checkOutDir() {
-        String directoryToCreatePath = new File("").getAbsolutePath() + System.getProperty("file.separator") + OUT_DIR;
-        Path dirPath = Paths.get(directoryToCreatePath);
-        if (!Files.exists(dirPath)) {
-            try {
-                Files.createDirectories(dirPath);
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException("Failed to create directory " + directoryToCreatePath);
-            }
         }
     }
 }

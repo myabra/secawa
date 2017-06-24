@@ -1,2 +1,4 @@
-mvn clean install
-jetty:run-war
+mvn clean package
+jetty:run-war -Dspring.profiles.active=standalone
+
+http://localhost:8080/main
