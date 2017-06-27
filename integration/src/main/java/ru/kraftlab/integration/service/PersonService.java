@@ -17,5 +17,5 @@ public interface PersonService {
 
     List<ADPosition> getPositions();
 
-    Map<String, List<ADPerson>> getDepartmentsWithPersons();
+    Map<ADDepartment, List<ADPerson>> getDepartmentsWithEmployees();
 }

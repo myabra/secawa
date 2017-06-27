@@ -3,7 +3,7 @@ package ru.kraftlab.integration.model;
 /**
  * Created by Maria on 27.01.2017.
  */
-public class ADDepartment {
+public class ADDepartment implements Comparable<ADDepartment> {
     private final String name;
     private final int employeesCount;
 
@@ -35,7 +35,12 @@ public class ADDepartment {
 
         ADDepartment that = (ADDepartment) o;
 
-        return name.toLowerCase().equals(that.name.toLowerCase());
+        return name.equalsIgnoreCase(that.name);
+    }
+
+    @Override
+    public int compareTo(ADDepartment o) {
+        return this.getName().compareToIgnoreCase(o.getName());
     }
 
     @Override

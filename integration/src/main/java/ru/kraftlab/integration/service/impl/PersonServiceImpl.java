@@ -8,7 +8,8 @@ import ru.kraftlab.integration.model.ADPerson;
 import ru.kraftlab.integration.model.ADPosition;
 import ru.kraftlab.integration.service.PersonService;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Maria on 26.01.2017.
@@ -20,7 +21,8 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public List<ADPerson> getPersons() {
-        return personDao.getAll();
+        List<ADPerson> personList = personDao.getAll();
+        return personList.subList(0, Math.min(personList.size(), 10));
     }
 
     @Override
@@ -34,17 +36,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Map<String, List<ADPerson>> getDepartmentsWithPersons() {
-        Map<String, List<ADPerson>> resultMap = new HashMap<>();
-        final List<ADPerson> personList = getPersons();
-        for (ADPerson adPerson : personList) {
-            final String dptName = adPerson.getDepartment();
-            if (!resultMap.containsKey(dptName)) {
-                resultMap.put(dptName, new LinkedList<>(Arrays.asList(adPerson)));
-            } else {
-                resultMap.get(dptName).add(adPerson);
-            }
-        }
-        return resultMap;
+    public Map<ADDepartment, List<ADPerson>> getDepartmentsWithEmployees() {
+        return personDao.getDepartmentsWithEmployees();
     }
 }

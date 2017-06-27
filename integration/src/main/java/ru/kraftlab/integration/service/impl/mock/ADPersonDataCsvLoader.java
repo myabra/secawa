@@ -11,6 +11,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static org.apache.commons.lang.StringUtils.isNotBlank;
 
@@ -18,9 +20,9 @@ import static org.apache.commons.lang.StringUtils.isNotBlank;
  * Created by Maria on 27.01.2017.
  */
 @Service
-public class ADPersonDataLoaderMock implements ADPersonDataLoader {
-    public static final String OUT_DIR = "integration" + System.getProperty("file.separator") + "out";
+public class ADPersonDataCsvLoader implements ADPersonDataLoader {
     public static final String CSV_SEPARATOR = ";";
+    public static final Pattern MANAGER_NAME_PATTERN = Pattern.compile("([а-яА-Я\\s])+");//todo check and fix
 
     @Autowired
     private ADPersonDao adPersonDao;
@@ -88,7 +90,9 @@ public class ADPersonDataLoaderMock implements ADPersonDataLoader {
                 String department = adRecordArr[departmentIndex];
                 String title = adRecordArr[titleIndex];
                 String mail = adRecordArr[mailIndex];
-                String manager = adRecordArr[managerIndex];
+                Matcher matcher = MANAGER_NAME_PATTERN.matcher(adRecordArr[managerIndex]);
+                String manager = matcher.find() ? matcher.group(0) : null;
+
                 if (isNotBlank(id) && isNotBlank(displayName) && isNotBlank(department) && isNotBlank(mail)) {
                     loadedPersonList.add(new ADPerson(id, displayName, department, title, mail, manager));
                 }

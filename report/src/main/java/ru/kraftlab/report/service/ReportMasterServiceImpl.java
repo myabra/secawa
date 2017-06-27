@@ -9,7 +9,6 @@ import ru.kraftlab.report.model.CampaignReport;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 /**

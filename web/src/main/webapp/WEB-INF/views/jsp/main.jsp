@@ -238,54 +238,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Безкровный А.А</td>
-                                <td class="center">ОИБ</td>
-                                <td class="center">Специалист</td>
-                                <td class="center">Суслов О.А.</td>
-                                <td class="center">100</td>
-                                <td class="center">10</td>
-                            </tr>
-                            <tr>
-                                <td>Безкровный А.А</td>
-                                <td class="center">ОИБ</td>
-                                <td class="center">Специалист</td>
-                                <td class="center">Суслов О.А.</td>
-                                <td class="center">100</td>
-                                <td class="center">10</td>
-                            </tr>
-                            <tr>
-                                <td>Безкровный А.А</td>
-                                <td class="center">ОИБ</td>
-                                <td class="center">Специалист</td>
-                                <td class="center">Суслов О.А.</td>
-                                <td class="center">100</td>
-                                <td class="center">10</td>
-                            </tr>
-                            <tr>
-                                <td>Безкровный А.А</td>
-                                <td class="center">ОИБ</td>
-                                <td class="center">Специалист</td>
-                                <td class="center">Суслов О.А.</td>
-                                <td class="center">100</td>
-                                <td class="center">10</td>
-                            </tr>
-                            <tr>
-                                <td>Безкровный А.А</td>
-                                <td class="center">ОИБ</td>
-                                <td class="center">Специалист</td>
-                                <td class="center">Суслов О.А.</td>
-                                <td class="center">100</td>
-                                <td class="center">10</td>
-                            </tr>
-                            <tr>
-                                <td>Безкровный А.А</td>
-                                <td class="center">ОИБ</td>
-                                <td class="center">Специалист</td>
-                                <td class="center">Суслов О.А.</td>
-                                <td class="center">100</td>
-                                <td class="center">10</td>
-                            </tr>
+                            <c:forEach items="${employees}" var="employee">
+                                <tr>
+                                    <td>${employee.displayName}</td>
+                                    <td class="center">${employee.department}</td>
+                                    <td class="center">${employee.position}</td>
+                                    <td class="center">${employee.manager}</td>
+                                    <td class="center">100</td>
+                                    <td class="center">10</td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                         <div class="pagination pagination-centered">
@@ -324,48 +286,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>ОИБ</td>
-                                <td class="center">100</td>
-                                <td class="center">80</td>
-                                <td class="center">10</td>
-                                <td class="center">68</td>
-                            </tr>
-                            <tr>
-                                <td>ОИБ</td>
-                                <td class="center">100</td>
-                                <td class="center">80</td>
-                                <td class="center">10</td>
-                                <td class="center">68</td>
-                            </tr>
-                            <tr>
-                                <td>ОИБ</td>
-                                <td class="center">100</td>
-                                <td class="center">80</td>
-                                <td class="center">10</td>
-                                <td class="center">68</td>
-                            </tr>
-                            <tr>
-                                <td>ОИБ</td>
-                                <td class="center">100</td>
-                                <td class="center">80</td>
-                                <td class="center">10</td>
-                                <td class="center">68</td>
-                            </tr>
-                            <tr>
-                                <td>ОИБ</td>
-                                <td class="center">100</td>
-                                <td class="center">80</td>
-                                <td class="center">10</td>
-                                <td class="center">68</td>
-                            </tr>
-                            <tr>
-                                <td>ОИБ</td>
-                                <td class="center">100</td>
-                                <td class="center">80</td>
-                                <td class="center">10</td>
-                                <td class="center">68</td>
-                            </tr>
+                            <c:forEach items="${departments}" var="department">
+                                <tr>
+                                    <td>${department.name}</td>
+                                    <td class="center">100</td>
+                                    <td class="center">80</td>
+                                    <td class="center">10</td>
+                                    <td class="center">68</td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
                         </table>
                         <div class="pagination pagination-centered">
