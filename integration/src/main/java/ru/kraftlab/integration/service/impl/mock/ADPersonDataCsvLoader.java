@@ -19,7 +19,6 @@ import static org.apache.commons.lang.StringUtils.isNotBlank;
 /**
  * Created by Maria on 27.01.2017.
  */
-@Service
 public class ADPersonDataCsvLoader implements ADPersonDataLoader {
     public static final String CSV_SEPARATOR = ";";
     public static final Pattern MANAGER_NAME_PATTERN = Pattern.compile("([а-яА-Я\\s])+");//todo check and fix

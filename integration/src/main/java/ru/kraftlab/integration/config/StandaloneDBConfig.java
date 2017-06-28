@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import ru.kraftlab.integration.service.ADPersonDataLoader;
+import ru.kraftlab.integration.service.impl.mock.ADPersonDataCsvLoader;
 
 import javax.sql.DataSource;
 
@@ -25,5 +27,10 @@ public class StandaloneDBConfig {
                 .addScript("db/sql/create-db.sql")
                 .build();
         return db;
+    }
+
+    @Bean
+    public ADPersonDataLoader personDataLoader() {
+        return new ADPersonDataCsvLoader();
     }
 }
