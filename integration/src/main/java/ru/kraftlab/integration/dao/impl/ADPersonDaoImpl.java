@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import ru.kraftlab.integration.dao.ADPersonDao;
 import ru.kraftlab.integration.model.ADDepartment;
 import ru.kraftlab.integration.model.ADPerson;
@@ -22,7 +22,7 @@ import java.util.Map;
 /**
  * Created by Maria on 26.01.2017.
  */
-@Service
+@Component
 public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
     private static final String TABLE_NAME = "w_employee_d";
     private static final String Q_CLEAR_ALL = String.format("delete from %s", TABLE_NAME);

@@ -14,10 +14,9 @@ public class Campaign {
     private String fileName;
     private boolean isActive;
 
-    public Campaign(String name, String fileName) {
-        this.creationDate = new Date();
+    public Campaign(String name, String createdBy, String fileName) {
         this.name = name;
-        this.createdBy = "auto created"; //todo
+        this.createdBy = createdBy;
         this.fileName = fileName;
     }
 
@@ -57,7 +56,7 @@ public class Campaign {
         this.fileName = fileName;
     }
 
-    public boolean isActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
@@ -66,12 +65,12 @@ public class Campaign {
     }
 
     public static class Builder {
-        private int id;
+        private Integer id;
         private Date creationDate;
-        private String createdBy;
+        private String createdBy = "auto created"; //todo fix
         private String name;
         private String fileName;
-        private Boolean isActive;
+        private boolean isActive;
 
         public Builder id(int id) {
             this.id = id;
@@ -107,16 +106,16 @@ public class Campaign {
             final String errMsq = "Value of %s is required";
             Objects.requireNonNull(name, String.format(errMsq, "name"));
             Objects.requireNonNull(createdBy, String.format(errMsq, "createdBy"));
-            Objects.requireNonNull(isActive, String.format(errMsq, "isActive"));
             Objects.requireNonNull(fileName, String.format(errMsq, "fileName"));
-            Objects.requireNonNull(id, String.format(errMsq, "id"));
-            Objects.requireNonNull(creationDate, String.format(errMsq, "creationDate"));
 
-            Campaign campaign = new Campaign(name, createdBy);
+            Campaign campaign = new Campaign(name, createdBy, fileName);
             campaign.setActive(isActive);
-            campaign.setFileName(fileName);
-            campaign.setId(id);
-            campaign.setCreationDate(creationDate);
+            if (id != null) {
+                campaign.setId(id);
+            }
+            if (creationDate != null) {
+                campaign.setCreationDate(creationDate);
+            }
 
             return campaign;
         }

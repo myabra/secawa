@@ -3,6 +3,7 @@ package ru.kraftlab.integration.dao.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import org.springframework.stereotype.Component;
 import ru.kraftlab.integration.dao.CampaignDAO;
 import ru.kraftlab.integration.model.Campaign;
 
@@ -13,13 +14,13 @@ import java.util.List;
 /**
  * Created by Мария on 27.06.2017.
  */
+@Component
 public class CampaignDAOImpl extends JdbcDaoSupport implements CampaignDAO {
     private static final String TABLE_NAME = "Campaign";
     private static final String Q_SAVE = String.format("insert into %s (name, file_name, active, created_by) values (?, ?, ?, ?)", TABLE_NAME);
     private static final String Q_UPDATE = String.format("update %s set name = ?, file_name = ?, active = ? where id=?", TABLE_NAME);
     private static final String Q_GET = String.format("select * from %s where id=?", TABLE_NAME);
-    private static final String Q_GET_ALL = String.format("select * from %s where", TABLE_NAME);
-
+    private static final String Q_GET_ALL = String.format("select * from %s order by created_date", TABLE_NAME);
 
     @Autowired
     public CampaignDAOImpl(DataSource dataSource) {
@@ -28,12 +29,12 @@ public class CampaignDAOImpl extends JdbcDaoSupport implements CampaignDAO {
 
     @Override
     public void save(Campaign campaign) {
-        getJdbcTemplate().update(Q_SAVE, campaign.getName(), campaign.getFileName(), campaign.isActive(), campaign.getCreatedBy());
+        getJdbcTemplate().update(Q_SAVE, campaign.getName(), campaign.getFileName(), campaign.getIsActive(), campaign.getCreatedBy());
     }
 
     @Override
     public void update(Campaign campaign) {
-        getJdbcTemplate().update(Q_UPDATE, campaign.getName(), campaign.getFileName(), campaign.isActive(), campaign.getId());
+        getJdbcTemplate().update(Q_UPDATE, campaign.getName(), campaign.getFileName(), campaign.getIsActive(), campaign.getId());
     }
 
     @Override

@@ -34,6 +34,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+        <dependency>
             <groupId>ru.kraftlab</groupId>
             <artifactId>integration</artifactId>
             <version>2.0</version>
@@ -42,6 +47,18 @@
             <groupId>ru.kraftlab</groupId>
             <artifactId>report</artifactId>
             <version>2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
 
     </dependencies>
