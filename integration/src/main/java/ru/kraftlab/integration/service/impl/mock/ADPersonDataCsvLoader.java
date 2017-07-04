@@ -92,7 +92,15 @@ public class ADPersonDataCsvLoader implements ADPersonDataLoader {
                 String manager = matcher.find() ? matcher.group(0) : null;
 
                 if (isNotBlank(id) && isNotBlank(displayName) && isNotBlank(department) && isNotBlank(mail)) {
-                    loadedPersonList.add(new ADPerson(id, displayName, department, title, mail, manager));
+                    loadedPersonList.add(
+                            new ADPerson.Builder()
+                                    .sid(id)
+                                    .displayName(displayName)
+                                    .department(department)
+                                    .position(title)
+                                    .mail(mail)
+                                    .manager(manager)
+                                    .build());
                 }
             }
             adPersonDao.saveAll(loadedPersonList);

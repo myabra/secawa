@@ -4,24 +4,25 @@ package ru.kraftlab.integration.model;
  * Created by Maria on 26.01.2017.
  */
 public class ADPerson {
-    String id;
-    String displayName;
-    String department;
-    String position;
-    String mail;
-    String manager;
+    private final String sid;
+    private final String displayName;
+    private final String department;
+    private final String position;
+    private final String mail;
+    private final String manager;
 
-    public ADPerson(String id, String displayName, String department, String position, String mail, String manager) {
-        this.id = id;
-        this.displayName = displayName;
-        this.department = department;
-        this.position = position;
-        this.mail = mail;
-        this.manager = manager;
+    public ADPerson(Builder builder) {
+        this.sid = builder.sid;
+        this.displayName = builder.displayName;
+        this.department = builder.department;
+        this.position = builder.position;
+        this.mail = builder.mail;
+        this.manager = builder.manager;
+
     }
 
-    public String getId() {
-        return id;
+    public String getSid() {
+        return sid;
     }
 
     public String getDisplayName() {
@@ -44,10 +45,54 @@ public class ADPerson {
         return manager;
     }
 
+    public static class Builder {
+        private String sid;
+        private String displayName;
+        private String department;
+        private String position;
+        private String mail;
+        private String manager;
+
+        public Builder sid(String sid) {
+            this.sid = sid;
+            return this;
+        }
+
+        public Builder displayName(String displayName) {
+            this.displayName = displayName;
+            return this;
+        }
+
+        public Builder department(String department) {
+            this.department = department;
+            return this;
+        }
+
+        public Builder position(String position) {
+            this.position = position;
+            return this;
+        }
+
+        public Builder mail(String mail) {
+            this.mail = mail;
+            return this;
+        }
+
+        public Builder manager(String manager) {
+            this.manager = manager;
+            return this;
+        }
+
+        public ADPerson build() {
+            //todo validation
+            return new ADPerson(this);
+        }
+    }
+
     @Override
     public String toString() {
         return "ADPerson{" +
-                "id='" + id + '\'' +
+                "sid='" + sid + '\'' +
                 ", displayName='" + displayName + '\'' +
                 ", department='" + department + '\'' +
                 ", position='" + position + '\'' +

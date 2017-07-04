@@ -24,7 +24,7 @@ public class StandaloneDBConfig {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         EmbeddedDatabase db = builder
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("db/sql/create-db.sql")
+                .addScript("db/sql/create-db-h2.sql")
                 .build();
         return db;
     }

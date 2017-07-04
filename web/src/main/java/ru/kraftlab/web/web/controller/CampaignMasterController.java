@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import ru.kraftlab.integration.dao.CampaignDAO;
 import ru.kraftlab.integration.model.Campaign;
+import ru.kraftlab.integration.service.CampaignService;
 import ru.kraftlab.web.web.dto.request.CampaignDTO;
 import ru.kraftlab.web.web.dto.response.Response;
 import ru.kraftlab.web.web.dto.validate.CampaignValidator;
@@ -16,12 +16,12 @@ import ru.kraftlab.web.web.dto.validate.CampaignValidator;
 @Controller
 public class CampaignMasterController {
     @Autowired
-    CampaignDAO campaignDAO;//todo service
+    CampaignService campaignService;
 
     @RequestMapping(value = "/campaignMaster", method = RequestMethod.GET)
     public ModelAndView buildPage() {
         ModelAndView model = new ModelAndView("campaignMaster");
-        model.addObject("campaigns", campaignDAO.getAll());
+        model.addObject("campaigns", campaignService.getAll());
         return model;
     }
 
@@ -31,7 +31,7 @@ public class CampaignMasterController {
         Response response = new Response();
         try {
             CampaignValidator.validateNew(campaign);
-            campaignDAO.save(new Campaign.Builder()
+            campaignService.save(new Campaign.Builder()
                     .name(campaign.getName())
                     .fileName(campaign.getFileName())
                     .build());

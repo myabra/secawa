@@ -28,7 +28,7 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
     //todo remove 'uppper' everywhere
     private static final String Q_GET_DEPARTMENTS = String.format("select upper(department) as department, count(*) as employee_count from %s group by upper(department) order by employee_count desc", TABLE_NAME);
     private static final String Q_GET_POSITIONS = String.format("select distinct position from %s where coalesce(position, '') != '' order by position", TABLE_NAME);
-    private static final int BATCH_SIZE = 50;
+    private static final int BATCH_SIZE = 50; //todo properties
 
     @Autowired
     public ADPersonDaoImpl(DataSource dataSource) {
@@ -37,6 +37,7 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
 
     @Override
     public List<ADPerson> getAll() {
+        //todo cache?
         //todo init list capacity with persons count
         return getJdbcTemplate().query(Q_GET_ALL, personRowMapper);
     }
@@ -55,7 +56,7 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
                 @Override
                 public void setValues(PreparedStatement ps, int i) throws SQLException {
                     ADPerson adPerson = batchPersonList.get(i);
-                    ps.setString(1, adPerson.getId());
+                    ps.setString(1, adPerson.getSid());
                     ps.setString(2, adPerson.getDisplayName());
                     ps.setString(3, adPerson.getDepartment());
                     ps.setString(4, adPerson.getPosition());
@@ -102,11 +103,13 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
         return getJdbcTemplate().query(Q_GET_POSITIONS, (rs, rowNum) -> rs.getString("position"));
     }
 
-    private static RowMapper<ADPerson> personRowMapper = (ResultSet rs, int rowNum) -> new ADPerson(
-            rs.getString("SID"),
-            rs.getString("DISPLAY_NAME"),
-            rs.getString("DEPARTMENT"),
-            rs.getString("POSITION"),
-            rs.getString("EMAIL"),
-            rs.getString("MANAGER"));
+    private static RowMapper<ADPerson> personRowMapper = (ResultSet rs, int rowNum) ->
+            new ADPerson.Builder()
+                    .sid(rs.getString("SID"))
+                    .displayName(rs.getString("DISPLAY_NAME"))
+                    .department(rs.getString("DEPARTMENT"))
+                    .position(rs.getString("POSITION"))
+                    .mail(rs.getString("EMAIL"))
+                    .manager(rs.getString("MANAGER"))
+                    .build();
 }
