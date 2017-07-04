@@ -2,10 +2,10 @@ package ru.kraftlab.integration.service;
 
 import ru.kraftlab.integration.model.ADDepartment;
 import ru.kraftlab.integration.model.ADPerson;
-import ru.kraftlab.integration.model.ADPosition;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Maria on 26.01.2017.
@@ -13,9 +13,11 @@ import java.util.Map;
 public interface PersonService {
     List<ADPerson> getPersons();
 
-    List<ADDepartment> getDepartments();
+    List<ADPerson> getPersons(int count);
 
-    List<ADPosition> getPositions();
+    Set<ADDepartment> getDepartments();
 
-    Map<ADDepartment, List<ADPerson>> getDepartmentsWithEmployees();
+    List<String> getPositions();
+
+    Map<String, List<ADPerson>> getDepartmentsWithEmployees();
 }

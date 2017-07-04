@@ -1,7 +1,6 @@
 package ru.kraftlab.integration.service.impl.mock;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import ru.kraftlab.integration.dao.ADPersonDao;
 import ru.kraftlab.integration.model.ADPerson;
 import ru.kraftlab.integration.service.ADPersonDataLoader;
@@ -52,7 +51,7 @@ public class ADPersonDataCsvLoader implements ADPersonDataLoader {
                 getClass().getClassLoader().getResourceAsStream((csvFileName))))) {
             String line = "";
             if ((line = br.readLine()) == null) {
-                //todo clear data
+                adPersonDao.clearAll();
                 return;
             }
 

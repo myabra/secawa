@@ -22,7 +22,7 @@ public class ReportMasterServiceImpl implements ReportMasterService {
 
     @Override
     public List<CampaignReport> getTopDepartmentsReports(Campaign campaign) {
-        List<ADDepartment> departments = personService.getDepartments();
+        List<ADDepartment> departments = new ArrayList<>(personService.getDepartments());
         //todo param departments count?
         departments = departments.subList(0, Math.min(departments.size(), 10));
 

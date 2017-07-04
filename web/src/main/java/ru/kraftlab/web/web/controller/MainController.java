@@ -24,7 +24,7 @@ public class MainController {
         ModelAndView model = new ModelAndView("main");
         model.addObject("overallReport", reportMasterService.getCompanyReport(new DefaultCampaign()));
         model.addObject("departmentReports", reportMasterService.getTopDepartmentsReports(new DefaultCampaign()));
-        model.addObject("employees", personService.getPersons());
+        model.addObject("employees", personService.getPersons(10));
         model.addObject("departments", new TreeSet<>(personService.getDepartments()));
         return model;
     }

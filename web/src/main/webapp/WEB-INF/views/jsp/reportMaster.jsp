@@ -31,7 +31,7 @@
             <div class="well" style="max-height: 600px;overflow: auto;">
                 <ul class="list-group checked-list-box">
                     <c:forEach items="${positions}" var="position">
-                        <li class="list-group-item">${position.title}</li>
+                        <li class="list-group-item">${position}</li>
                     </c:forEach>
                 </ul>
             </div>
