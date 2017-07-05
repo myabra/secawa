@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
 import ru.kraftlab.integration.dao.ADPersonDao;
-import ru.kraftlab.integration.model.ADDepartment;
 import ru.kraftlab.integration.model.ADPerson;
 
 import javax.sql.DataSource;
@@ -16,17 +15,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
-/**
- * Created by Maria on 26.01.2017.
- */
 @Component
 public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
     private static final String TABLE_NAME = "w_employee_d";
     private static final String Q_CLEAR_ALL = String.format("delete from %s", TABLE_NAME);
     private static final String Q_GET_ALL = String.format("select * from %s", TABLE_NAME);
     private static final String Q_INSERT_PERSON = String.format("insert into %s (SID, DISPLAY_NAME, DEPARTMENT, POSITION, EMAIL, MANAGER) values (?, ?, ?, ?, ?, ?)", TABLE_NAME);
-    //todo remove 'uppper' everywhere
-    private static final String Q_GET_DEPARTMENTS = String.format("select upper(department) as department, count(*) as employee_count from %s group by upper(department) order by employee_count desc", TABLE_NAME);
     private static final String Q_GET_POSITIONS = String.format("select distinct position from %s where coalesce(position, '') != '' order by position", TABLE_NAME);
     private static final int BATCH_SIZE = 50; //todo properties
 
@@ -38,7 +32,6 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
     @Override
     public List<ADPerson> getAll() {
         //todo cache?
-        //todo init list capacity with persons count
         return getJdbcTemplate().query(Q_GET_ALL, personRowMapper);
     }
 
@@ -73,14 +66,6 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
     }
 
     @Override
-    public Set<ADDepartment> getDepartments() {
-        return new HashSet<>(getJdbcTemplate().query(Q_GET_DEPARTMENTS, (rs, rowNum) -> new ADDepartment(
-                rs.getString("department"),
-                rs.getInt("employee_count")
-        )));
-    }
-
-    @Override
     public Map<String, List<ADPerson>> getDepartmentsWithEmployees() {
         List<ADPerson> persons = getAll();
         Map<String, List<ADPerson>> departmentPersonMap = new HashMap<>();
@@ -103,7 +88,7 @@ public class ADPersonDaoImpl extends JdbcDaoSupport implements ADPersonDao {
         return getJdbcTemplate().query(Q_GET_POSITIONS, (rs, rowNum) -> rs.getString("position"));
     }
 
-    private static RowMapper<ADPerson> personRowMapper = (ResultSet rs, int rowNum) ->
+    private static final RowMapper<ADPerson> personRowMapper = (ResultSet rs, int rowNum) ->
             new ADPerson.Builder()
                     .sid(rs.getString("SID"))
                     .displayName(rs.getString("DISPLAY_NAME"))

@@ -9,8 +9,6 @@ import ru.kraftlab.integration.service.PersonService;
 import ru.kraftlab.report.model.DefaultCampaign;
 import ru.kraftlab.report.service.ReportMasterService;
 
-import java.util.TreeSet;
-
 @Controller
 public class MainController {
     @Autowired
@@ -25,7 +23,7 @@ public class MainController {
         model.addObject("overallReport", reportMasterService.getCompanyReport(new DefaultCampaign()));
         model.addObject("departmentReports", reportMasterService.getTopDepartmentsReports(new DefaultCampaign()));
         model.addObject("employees", personService.getPersons(10));
-        model.addObject("departments", new TreeSet<>(personService.getDepartments()));
+        model.addObject("departments", personService.getDepartments());
         return model;
     }
 }

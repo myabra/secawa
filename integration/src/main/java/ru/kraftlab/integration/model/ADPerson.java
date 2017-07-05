@@ -100,4 +100,22 @@ public class ADPerson {
                 ", manager='" + manager + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ADPerson adPerson = (ADPerson) o;
+
+        return sid.equals(adPerson.sid);
+    }
+
+    @Override
+    public int hashCode() {
+        return new org.apache.commons.lang3.builder.HashCodeBuilder(17, 37)
+                .append(sid)
+                .toHashCode();
+    }
 }

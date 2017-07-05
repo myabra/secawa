@@ -1,11 +1,9 @@
 package ru.kraftlab.integration.dao;
 
-import ru.kraftlab.integration.model.ADDepartment;
 import ru.kraftlab.integration.model.ADPerson;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Maria on 26.01.2017.
@@ -16,8 +14,6 @@ public interface ADPersonDao {
     void clearAll();
 
     void saveAll(List<ADPerson> personList);
-
-    Set<ADDepartment> getDepartments();
 
     Map<String, List<ADPerson>> getDepartmentsWithEmployees();
 

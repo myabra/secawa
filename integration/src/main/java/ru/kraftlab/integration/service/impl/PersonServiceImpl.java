@@ -10,14 +10,19 @@ import ru.kraftlab.integration.service.PersonService;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Created by Maria on 26.01.2017.
  */
 @Service
 public class PersonServiceImpl implements PersonService {
+    private ADPersonDao personDao;
+
     @Autowired
-    ADPersonDao personDao;
+    public PersonServiceImpl(ADPersonDao personDao) {
+        this.personDao = personDao;
+    }
 
     @Override
     public List<ADPerson> getPersons() {
@@ -32,7 +37,15 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Set<ADDepartment> getDepartments() {
-        return personDao.getDepartments();
+        Map<String, List<ADPerson>> departmentsWithEmployees = personDao.getDepartmentsWithEmployees();
+        Set<ADDepartment> departmentSet = new TreeSet<>();
+
+        for (String deptName : departmentsWithEmployees.keySet()) {
+            int employeesCount = departmentsWithEmployees.get(deptName).size();
+            departmentSet.add(new ADDepartment(deptName, employeesCount));
+        }
+
+        return departmentSet;
     }
 
     @Override

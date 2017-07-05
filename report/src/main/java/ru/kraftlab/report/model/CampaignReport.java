@@ -1,6 +1,6 @@
 package ru.kraftlab.report.model;
 
-import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.RandomUtils;
 import ru.kraftlab.integration.model.ADDepartment;
 
 /**
@@ -65,10 +65,10 @@ public class CampaignReport {
         }
 
         public CampaignReport buildRandomScores() {
-            informedPercent = Double.valueOf(RandomUtils.nextInt(100));
-            testedPercent = Double.valueOf(RandomUtils.nextInt(100));
-            controlPercent = Double.valueOf(RandomUtils.nextInt(100));
-            averageScore = Double.valueOf(RandomUtils.nextInt(100));
+            informedPercent = Double.valueOf(RandomUtils.nextInt(0, 100));
+            testedPercent = Double.valueOf(RandomUtils.nextInt(0, 100));
+            controlPercent = Double.valueOf(RandomUtils.nextInt(0, 100));
+            averageScore = Double.valueOf(RandomUtils.nextInt(0, 100));
             return new CampaignReport(this);
         }
     }
