@@ -5,9 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ru.kraftlab.integration.service.PersonService;
-import ru.kraftlab.report.model.DefaultCampaign;
-import ru.kraftlab.report.service.ReportMasterService;
+import ru.kraftlab.app.service.PersonService;
+import ru.kraftlab.app.service.ReportMasterService;
 
 @Controller
 public class MainController {
@@ -20,8 +19,8 @@ public class MainController {
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView build() {
         ModelAndView model = new ModelAndView("main");
-        model.addObject("overallReport", reportMasterService.getCompanyReport(new DefaultCampaign()));
-        model.addObject("departmentReports", reportMasterService.getTopDepartmentsReports(new DefaultCampaign()));
+        model.addObject("overallReport", reportMasterService.getCompanyReport(null));
+        model.addObject("departmentReports", reportMasterService.getTopDepartmentsReports(null));
         model.addObject("employees", personService.getPersons(10));
         model.addObject("departments", personService.getDepartments());
         return model;
