@@ -4,36 +4,31 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * Created by Мария on 27.06.2017.
+ * Кампания по обучению сотрудников
  */
 public class Campaign {
-    private int id;
-    private Date creationDate;
-    private String createdBy;
-    private String name;
-    private String fileName;
-    private boolean isActive;
+    private final Integer id;
+    private final Date creationDate;
+    private final String createdBy;
+    private final String name;
+    private final String fileName;
+    private final boolean isActive;
 
-    public Campaign(String name, String createdBy, String fileName) {
-        this.name = name;
-        this.createdBy = createdBy;
-        this.fileName = fileName;
+    private Campaign(Builder builder) {
+        this.id = builder.id;
+        this.creationDate = builder.creationDate;
+        this.createdBy = builder.createdBy;
+        this.name = builder.name;
+        this.fileName = builder.fileName;
+        this.isActive = builder.isActive;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    private void setId(int id) {
-        this.id = id;
-    }
-
     public Date getCreationDate() {
-        return new Date(creationDate.getTime());
-    }
-
-    private void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
+        return creationDate;
     }
 
     public String getCreatedBy() {
@@ -44,24 +39,12 @@ public class Campaign {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getFileName() {
         return fileName;
     }
 
-    private void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
     public boolean getIsActive() {
         return isActive;
-    }
-
-    public void setActive(boolean active) {
-        isActive = active;
     }
 
     public static class Builder {
@@ -107,17 +90,7 @@ public class Campaign {
             Objects.requireNonNull(name, String.format(errMsq, "name"));
             Objects.requireNonNull(createdBy, String.format(errMsq, "createdBy"));
             Objects.requireNonNull(fileName, String.format(errMsq, "fileName"));
-
-            Campaign campaign = new Campaign(name, createdBy, fileName);
-            campaign.setActive(isActive);
-            if (id != null) {
-                campaign.setId(id);
-            }
-            if (creationDate != null) {
-                campaign.setCreationDate(creationDate);
-            }
-
-            return campaign;
+            return new Campaign(this);
         }
     }
 }

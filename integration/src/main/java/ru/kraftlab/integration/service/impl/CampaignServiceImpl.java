@@ -11,17 +11,18 @@ import ru.kraftlab.integration.service.CampaignService;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
-/**
- * Created by Мария on 04.07.2017.
- */
 @Service
 public class CampaignServiceImpl implements CampaignService {
-    @Autowired
-    CampaignDAO campaignDAO;
+    private CampaignDAO campaignDAO;
+    private ADPersonDao personDao;
 
     @Autowired
-    ADPersonDao personDao;
+    public CampaignServiceImpl(CampaignDAO campaignDAO, ADPersonDao personDao) {
+        this.campaignDAO = campaignDAO;
+        this.personDao = personDao;
+    }
 
     @Override
     public void save(Campaign campaign) {
@@ -51,7 +52,9 @@ public class CampaignServiceImpl implements CampaignService {
             if (personsForAssignCampaign == null) {
                 throw new IllegalArgumentException(String.format("Department %s does not exist", departmentName));
             }
-            campaignDAO.assignToPersons(campaignId, personsForAssignCampaign);
+
+            final List<String> personsSIDs = personsForAssignCampaign.stream().map(ADPerson::getSid).collect(Collectors.toList());
+            campaignDAO.assignToPersons(campaignId, personsSIDs);
         }
     }
 }

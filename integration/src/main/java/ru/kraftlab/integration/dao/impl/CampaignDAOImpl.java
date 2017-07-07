@@ -6,7 +6,6 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
 import ru.kraftlab.integration.dao.CampaignDAO;
-import ru.kraftlab.integration.model.ADPerson;
 import ru.kraftlab.integration.model.Campaign;
 
 import javax.sql.DataSource;
@@ -16,9 +15,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by Мария on 27.06.2017.
- */
 @Component
 public class CampaignDAOImpl extends JdbcDaoSupport implements CampaignDAO {
     private static final String CAMPAIGN_TABLE_NAME = "Campaign";
@@ -58,28 +54,27 @@ public class CampaignDAOImpl extends JdbcDaoSupport implements CampaignDAO {
     }
 
     @Override
-    public boolean assignToPersons(int campaignId, List<ADPerson> persons) {
-        if (persons == null || persons.isEmpty()) {
+    public void assignToPersons(int campaignId, List<String> personSIDs) {
+        if (personSIDs == null || personSIDs.isEmpty()) {
             throw new IllegalArgumentException("Empty person list");
         }
 
         getJdbcTemplate().batchUpdate(Q_ASSIGN_TO_EMP, new BatchPreparedStatementSetter() {
             @Override
             public void setValues(PreparedStatement ps, int i) throws SQLException {
-                ADPerson adPerson = persons.get(i);
+                String personSID = personSIDs.get(i);
                 ps.setInt(1, campaignId);
-                ps.setString(2, adPerson.getSid());
+                ps.setString(2, personSID);
             }
 
             @Override
             public int getBatchSize() {
-                return persons.size();
+                return personSIDs.size();
             }
         });
-        return false;
     }
 
-    private static RowMapper<Campaign> campaignRowMapper = (ResultSet rs, int rowNum) -> new Campaign.Builder()
+    private static final RowMapper<Campaign> campaignRowMapper = (ResultSet rs, int rowNum) -> new Campaign.Builder()
             .createdBy(rs.getString("created_by"))
             .creationDate(rs.getDate("created_date"))
             .fileName(rs.getString("file_name"))

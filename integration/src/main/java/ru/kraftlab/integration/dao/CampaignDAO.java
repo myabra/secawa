@@ -1,13 +1,9 @@
 package ru.kraftlab.integration.dao;
 
-import ru.kraftlab.integration.model.ADPerson;
 import ru.kraftlab.integration.model.Campaign;
 
 import java.util.List;
 
-/**
- * Created by Мария on 27.06.2017.
- */
 public interface CampaignDAO {
     void save(Campaign campaign);
 
@@ -17,6 +13,7 @@ public interface CampaignDAO {
 
     List<Campaign> getAll();
 
-    //todo void vs boolean?
-    boolean assignToPersons(int campaignId, List<ADPerson> persons);
+    void assignToPersons(int campaignId, List<String> personSIDs);
+
+    //todo provide obtaining assigned campaigns
 }
