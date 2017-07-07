@@ -2,9 +2,9 @@ package ru.kraftlab.campaign.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kraftlab.person.model.ADDepartment;
 import ru.kraftlab.campaign.model.Campaign;
 import ru.kraftlab.campaign.model.CampaignReport;
+import ru.kraftlab.person.model.ADDepartment;
 import ru.kraftlab.person.service.PersonService;
 
 import java.util.ArrayList;
@@ -16,9 +16,13 @@ import java.util.List;
  */
 @Service
 public class ReportMasterServiceImpl implements ReportMasterService {
-    public static int MAX_REPORTS_COUNT = 3;
+    private static final int MAX_REPORTS_COUNT = 3;
+    private final PersonService personService;
+
     @Autowired
-    PersonService personService;
+    public ReportMasterServiceImpl(PersonService personService) {
+        this.personService = personService;
+    }
 
     @Override
     public List<CampaignReport> getTopDepartmentsReports(Campaign campaign) {

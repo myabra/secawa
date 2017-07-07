@@ -15,7 +15,7 @@ public class CampaignReport {
     private final Double averageScore;
     private final Integer employeeCount;
 
-    public CampaignReport(Builder builder) {
+    private CampaignReport(Builder builder) {
         this.campaign = builder.campaign;
         this.departmentName = builder.departmentName;
         this.informedPercent = builder.informedPercent;
@@ -65,10 +65,10 @@ public class CampaignReport {
         }
 
         public CampaignReport buildRandomScores() {
-            informedPercent = Double.valueOf(RandomUtils.nextInt(0, 100));
-            testedPercent = Double.valueOf(RandomUtils.nextInt(0, 100));
-            controlPercent = Double.valueOf(RandomUtils.nextInt(0, 100));
-            averageScore = Double.valueOf(RandomUtils.nextInt(0, 100));
+            informedPercent = (double) RandomUtils.nextInt(0, 100);
+            testedPercent = (double) RandomUtils.nextInt(0, 100);
+            controlPercent = (double) RandomUtils.nextInt(0, 100);
+            averageScore = (double) RandomUtils.nextInt(0, 100);
             return new CampaignReport(this);
         }
     }

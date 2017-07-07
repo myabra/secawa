@@ -2,11 +2,11 @@ package ru.kraftlab.campaign.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kraftlab.person.dao.ADPersonDao;
 import ru.kraftlab.campaign.dao.CampaignDAO;
-import ru.kraftlab.person.model.ADPerson;
 import ru.kraftlab.campaign.model.Campaign;
 import ru.kraftlab.campaign.service.CampaignService;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.person.model.ADPerson;
 
 import java.util.List;
 import java.util.Map;
@@ -15,8 +15,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CampaignServiceImpl implements CampaignService {
-    private CampaignDAO campaignDAO;
-    private ADPersonDao personDao;
+    private final CampaignDAO campaignDAO;
+    private final ADPersonDao personDao;
 
     @Autowired
     public CampaignServiceImpl(CampaignDAO campaignDAO, ADPersonDao personDao) {

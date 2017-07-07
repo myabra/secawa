@@ -17,7 +17,7 @@ import java.util.TreeSet;
  */
 @Service
 public class PersonServiceImpl implements PersonService {
-    private ADPersonDao personDao;
+    private final ADPersonDao personDao;
 
     @Autowired
     public PersonServiceImpl(ADPersonDao personDao) {

@@ -11,10 +11,10 @@ import ru.kraftlab.campaign.service.ReportMasterService;
 @Controller
 public class MainController {
     @Autowired
-    PersonService personService;
+    private PersonService personService;
 
     @Autowired
-    ReportMasterService reportMasterService;
+    private ReportMasterService reportMasterService;
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public ModelAndView build() {

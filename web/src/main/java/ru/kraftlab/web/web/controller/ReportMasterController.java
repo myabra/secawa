@@ -10,6 +10,7 @@ import ru.kraftlab.person.service.PersonService;
 @Controller
 public class ReportMasterController {
     @Autowired
+    private
     PersonService personService;
 
     @RequestMapping(value = "/reportMaster", method = RequestMethod.GET)

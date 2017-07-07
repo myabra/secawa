@@ -11,7 +11,7 @@ public class ADPerson {
     private final String mail;
     private final String manager;
 
-    public ADPerson(Builder builder) {
+    private ADPerson(Builder builder) {
         this.sid = builder.sid;
         this.displayName = builder.displayName;
         this.department = builder.department;

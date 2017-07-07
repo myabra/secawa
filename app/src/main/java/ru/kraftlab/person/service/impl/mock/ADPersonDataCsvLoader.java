@@ -19,8 +19,8 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
  * Created by Maria on 27.01.2017.
  */
 public class ADPersonDataCsvLoader implements ADPersonDataLoader {
-    public static final String CSV_SEPARATOR = ";";
-    public static final Pattern MANAGER_NAME_PATTERN = Pattern.compile("([а-яА-Я\\s])+");//todo check and fix
+    private static final String CSV_SEPARATOR = ";";
+    private static final Pattern MANAGER_NAME_PATTERN = Pattern.compile("([а-яА-Я\\s])+");//todo check and fix
 
     @Autowired
     private ADPersonDao adPersonDao;
@@ -49,7 +49,7 @@ public class ADPersonDataCsvLoader implements ADPersonDataLoader {
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(
                 getClass().getClassLoader().getResourceAsStream((csvFileName))))) {
-            String line = "";
+            String line;
             if ((line = br.readLine()) == null) {
                 adPersonDao.clearAll();
                 return;

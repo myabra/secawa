@@ -12,10 +12,10 @@ public class CampaignValidator {
     public static void validateNew(CampaignDTO campaign) throws IllegalArgumentException {
         String errMessage = "";
         if (isNullOrEmpty(campaign.getName())) {
-            String.join("Не задано название кампании.");
+            errMessage = String.join("Не задано название кампании.");
         }
         if (isNullOrEmpty(campaign.getFileName())) {
-            String.join(" ", "Не задан путь к обучающими материалам.");
+            errMessage = String.join(" ", errMessage, "Не задан путь к обучающими материалам.");
         }
 
         if (!isNullOrEmpty(errMessage)) {

@@ -16,7 +16,7 @@ import ru.kraftlab.web.web.dto.validate.CampaignValidator;
 @Controller
 public class CampaignMasterController {
     @Autowired
-    CampaignService campaignService;
+    private CampaignService campaignService;
 
     @RequestMapping(value = "/campaignMaster", method = RequestMethod.GET)
     public ModelAndView buildPage() {
