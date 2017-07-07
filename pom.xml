@@ -11,7 +11,7 @@
 
     <modules>
         <module>web</module>
-        <module>integration</module>
+        <module>app</module>
     </modules>
 
     <properties>
