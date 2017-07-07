@@ -1,7 +1,7 @@
-package ru.kraftlab.app.service;
+package ru.kraftlab.campaign.service;
 
-import ru.kraftlab.app.model.Campaign;
-import ru.kraftlab.app.model.CampaignReport;
+import ru.kraftlab.campaign.model.Campaign;
+import ru.kraftlab.campaign.model.CampaignReport;
 
 import java.util.List;
 

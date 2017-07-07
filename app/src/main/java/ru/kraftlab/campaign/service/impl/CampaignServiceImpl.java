@@ -1,12 +1,12 @@
-package ru.kraftlab.app.service.impl;
+package ru.kraftlab.campaign.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kraftlab.app.dao.ADPersonDao;
-import ru.kraftlab.app.dao.CampaignDAO;
-import ru.kraftlab.app.model.ADPerson;
-import ru.kraftlab.app.model.Campaign;
-import ru.kraftlab.app.service.CampaignService;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.campaign.dao.CampaignDAO;
+import ru.kraftlab.person.model.ADPerson;
+import ru.kraftlab.campaign.model.Campaign;
+import ru.kraftlab.campaign.service.CampaignService;
 
 import java.util.List;
 import java.util.Map;

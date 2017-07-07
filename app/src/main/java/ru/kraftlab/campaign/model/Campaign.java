@@ -1,4 +1,4 @@
-package ru.kraftlab.app.model;
+package ru.kraftlab.campaign.model;
 
 import java.util.Date;
 import java.util.Objects;

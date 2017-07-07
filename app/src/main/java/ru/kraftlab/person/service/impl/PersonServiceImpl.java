@@ -1,11 +1,11 @@
-package ru.kraftlab.app.service.impl;
+package ru.kraftlab.person.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kraftlab.app.dao.ADPersonDao;
-import ru.kraftlab.app.model.ADDepartment;
-import ru.kraftlab.app.model.ADPerson;
-import ru.kraftlab.app.service.PersonService;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.person.model.ADDepartment;
+import ru.kraftlab.person.model.ADPerson;
+import ru.kraftlab.person.service.PersonService;
 
 import java.util.List;
 import java.util.Map;

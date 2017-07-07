@@ -1,9 +1,9 @@
-package ru.kraftlab.app.service.impl.mock;
+package ru.kraftlab.person.service.impl.mock;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import ru.kraftlab.app.dao.ADPersonDao;
-import ru.kraftlab.app.model.ADPerson;
-import ru.kraftlab.app.service.ADPersonDataLoader;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.person.model.ADPerson;
+import ru.kraftlab.person.service.ADPersonDataLoader;
 
 import javax.annotation.PostConstruct;
 import java.io.BufferedReader;

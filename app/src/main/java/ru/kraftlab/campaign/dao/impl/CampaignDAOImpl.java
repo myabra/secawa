@@ -1,12 +1,12 @@
-package ru.kraftlab.app.dao.impl;
+package ru.kraftlab.campaign.dao.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
-import ru.kraftlab.app.dao.CampaignDAO;
-import ru.kraftlab.app.model.Campaign;
+import ru.kraftlab.campaign.dao.CampaignDAO;
+import ru.kraftlab.campaign.model.Campaign;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;

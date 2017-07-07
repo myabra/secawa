@@ -1,7 +1,7 @@
-package ru.kraftlab.app.service;
+package ru.kraftlab.person.service;
 
-import ru.kraftlab.app.model.ADDepartment;
-import ru.kraftlab.app.model.ADPerson;
+import ru.kraftlab.person.model.ADDepartment;
+import ru.kraftlab.person.model.ADPerson;
 
 import java.util.List;
 import java.util.Map;

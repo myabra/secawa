@@ -30,6 +30,6 @@ public class Response {
 
     public enum RESULT {
         OK,
-        ERROR;
+        ERROR
     }
 }

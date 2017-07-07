@@ -1,6 +1,7 @@
-package ru.kraftlab.app.model;
+package ru.kraftlab.campaign.model;
 
 import org.apache.commons.lang3.RandomUtils;
+import ru.kraftlab.person.model.ADDepartment;
 
 /**
  * Created by Мария on 07.02.2017.

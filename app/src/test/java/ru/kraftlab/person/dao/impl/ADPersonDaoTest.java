@@ -1,4 +1,4 @@
-package ru.kraftlab.app.dao.impl;
+package ru.kraftlab.person.dao.impl;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.kraftlab.app.config.TestConfig;
-import ru.kraftlab.app.dao.ADPersonDao;
-import ru.kraftlab.app.model.ADPerson;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.person.model.ADPerson;
 
 import java.util.*;
 

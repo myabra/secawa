@@ -1,6 +1,6 @@
-package ru.kraftlab.app.dao;
+package ru.kraftlab.person.dao;
 
-import ru.kraftlab.app.model.ADPerson;
+import ru.kraftlab.person.model.ADPerson;
 
 import java.util.List;
 import java.util.Map;

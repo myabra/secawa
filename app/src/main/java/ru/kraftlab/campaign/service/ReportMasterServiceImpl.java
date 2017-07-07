@@ -1,10 +1,11 @@
-package ru.kraftlab.app.service;
+package ru.kraftlab.campaign.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kraftlab.app.model.ADDepartment;
-import ru.kraftlab.app.model.Campaign;
-import ru.kraftlab.app.model.CampaignReport;
+import ru.kraftlab.person.model.ADDepartment;
+import ru.kraftlab.campaign.model.Campaign;
+import ru.kraftlab.campaign.model.CampaignReport;
+import ru.kraftlab.person.service.PersonService;
 
 import java.util.ArrayList;
 import java.util.Collections;

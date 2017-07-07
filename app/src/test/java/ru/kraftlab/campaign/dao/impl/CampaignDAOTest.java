@@ -1,4 +1,4 @@
-package ru.kraftlab.app.dao.impl;
+package ru.kraftlab.campaign.dao.impl;
 
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.kraftlab.app.config.TestConfig;
-import ru.kraftlab.app.dao.CampaignDAO;
-import ru.kraftlab.app.model.Campaign;
+import ru.kraftlab.campaign.dao.CampaignDAO;
+import ru.kraftlab.campaign.model.Campaign;
 
 import javax.sql.DataSource;
 import java.sql.Connection;

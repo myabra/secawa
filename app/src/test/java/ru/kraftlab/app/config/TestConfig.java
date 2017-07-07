@@ -4,10 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import ru.kraftlab.app.dao.ADPersonDao;
-import ru.kraftlab.app.dao.CampaignDAO;
-import ru.kraftlab.app.dao.impl.ADPersonDaoImpl;
-import ru.kraftlab.app.dao.impl.CampaignDAOImpl;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.campaign.dao.CampaignDAO;
+import ru.kraftlab.person.dao.impl.ADPersonDaoImpl;
+import ru.kraftlab.campaign.dao.impl.CampaignDAOImpl;
 
 import javax.sql.DataSource;
 

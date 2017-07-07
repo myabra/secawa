@@ -1,4 +1,4 @@
-package ru.kraftlab.app.model;
+package ru.kraftlab.person.model;
 
 /**
  * Created by Maria on 26.01.2017.

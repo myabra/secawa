@@ -12,7 +12,7 @@ import javax.sql.DataSource;
  * Created by Мария on 09.02.2017.
  */
 @Configuration
-@ComponentScan({"ru.kraftlab.app"})
+@ComponentScan({"ru.kraftlab.person", "ru.kraftlab.campaign"})
 @Profile("dev")
 public class DBConfig {
     //todo db properties

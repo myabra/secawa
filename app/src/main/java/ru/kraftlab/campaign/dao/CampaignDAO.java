@@ -1,6 +1,6 @@
-package ru.kraftlab.app.dao;
+package ru.kraftlab.campaign.dao;
 
-import ru.kraftlab.app.model.Campaign;
+import ru.kraftlab.campaign.model.Campaign;
 
 import java.util.List;
 

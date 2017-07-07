@@ -1,4 +1,4 @@
-package ru.kraftlab.app.dao.impl;
+package ru.kraftlab.person.dao.impl;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Component;
-import ru.kraftlab.app.dao.ADPersonDao;
-import ru.kraftlab.app.model.ADPerson;
+import ru.kraftlab.person.dao.ADPersonDao;
+import ru.kraftlab.person.model.ADPerson;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;

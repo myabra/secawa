@@ -1,4 +1,4 @@
-package ru.kraftlab.app.service;
+package ru.kraftlab.person.service;
 
 /**
  * Created by Maria on 27.01.2017.
