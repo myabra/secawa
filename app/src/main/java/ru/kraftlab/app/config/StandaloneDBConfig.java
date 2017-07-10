@@ -1,7 +1,6 @@
 package ru.kraftlab.app.config;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -11,11 +10,7 @@ import ru.kraftlab.person.service.impl.mock.ADPersonDataCsvLoader;
 
 import javax.sql.DataSource;
 
-/**
- * Created by Мария on 09.02.2017.
- */
 @Configuration
-@ComponentScan({"ru.kraftlab.person", "ru.kraftlab.campaign"})
 @Profile("standalone")
 public class StandaloneDBConfig {
     @Bean

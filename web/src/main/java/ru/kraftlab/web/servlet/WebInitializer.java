@@ -3,6 +3,7 @@ package ru.kraftlab.web.servlet;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import ru.kraftlab.app.config.AppConfig;
 import ru.kraftlab.app.config.DBConfig;
 import ru.kraftlab.app.config.StandaloneDBConfig;
 import ru.kraftlab.web.config.SpringWebConfig;
@@ -29,6 +30,6 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{DBConfig.class, StandaloneDBConfig.class};
+        return new Class[]{AppConfig.class, DBConfig.class, StandaloneDBConfig.class};
     }
 }
