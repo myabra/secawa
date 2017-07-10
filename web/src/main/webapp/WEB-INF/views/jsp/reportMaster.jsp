@@ -5,14 +5,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <title>Spring MVC 4 + Ajax Hello World</title>
-    <c:url var="home" value="/" scope="request"/>
-
-    <spring:url value="/resources/core/css/reportMaster.css" var="coreCss"/>
-    <spring:url value="/resources/core/img/" var="img"/>
+    <title>Просмотр статистики по кампаниям</title>
     <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss"/>
     <link href="${bootstrapCss}" rel="stylesheet"/>
-    <link href="${coreCss}" rel="stylesheet"/>
 
     <spring:url value="/resources/core/js/bootstrap.min.js"
                 var="bootstrapJs"/>
