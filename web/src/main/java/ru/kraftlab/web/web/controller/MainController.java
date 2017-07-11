@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ru.kraftlab.person.service.PersonService;
 import ru.kraftlab.campaign.service.ReportMasterService;
+import ru.kraftlab.person.service.PersonService;
 
 @Controller
 public class MainController {
@@ -21,7 +21,7 @@ public class MainController {
         ModelAndView model = new ModelAndView("main");
         model.addObject("overallReport", reportMasterService.getCompanyReport(null));
         model.addObject("departmentReports", reportMasterService.getTopDepartmentsReports(null));
-        model.addObject("employees", personService.getPersons(10));
+        model.addObject("employees", personService.getPersons());
         model.addObject("departments", personService.getDepartments());
         return model;
     }

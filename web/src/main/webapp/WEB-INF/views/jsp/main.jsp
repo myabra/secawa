@@ -143,16 +143,15 @@
                     </c:forEach>
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation">
+                <nav aria-label="Page navigation" data-current-page="1">
                     <ul class="pagination">
                         <li>
-                            <a href="#" aria-label="Previous">
+                            <a aria-label="Previous" data-direction="prev">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
-                        <li><a href="#">1</a></li>
                         <li>
-                            <a href="#" aria-label="Next">
+                            <a aria-label="Next" data-direction="next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
@@ -170,9 +169,9 @@
                     <h2><i class="halflings-icon white align-justify"></i><span class="break"></span>Подразделения
                     </h2>
                     <div class="box-icon">
-                        <a href="#" class="btn-setting"><i class="halflings-icon white wrench"></i></a>
-                        <a href="#" class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
-                        <a href="#" class="btn-close"><i class="halflings-icon white remove"></i></a>
+                        <a class="btn-setting"><i class="halflings-icon white wrench"></i></a>
+                        <a class="btn-minimize"><i class="halflings-icon white chevron-up"></i></a>
+                        <a class="btn-close"><i class="halflings-icon white remove"></i></a>
                     </div>
                 </div>
                 <div class="box-content">
@@ -198,16 +197,15 @@
                         </c:forEach>
                         </tbody>
                     </table>
-                    <nav aria-label="Page navigation">
+                    <nav aria-label="Page navigation" data-current-page="1">
                         <ul class="pagination">
                             <li>
-                                <a href="#" aria-label="Previous">
+                                <a aria-label="Previous" data-direction="prev">
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li><a href="#" data-page="1">1</a></li>
                             <li>
-                                <a href="#" aria-label="Next">
+                                <a aria-label="Next" data-direction="next">
                                     <span aria-hidden="true">&raquo;</span>
                                 </a>
                             </li>
@@ -225,7 +223,7 @@
     <div class="number">10<i class="icon-arrow-up"></i></div>
     <div class="title">Активные</div>
     <div class="footer">
-        <a href="#"> Отчет</a>
+        <a> Отчет</a>
     </div>
 </div>
 <div class="span3 statbox green" onTablet="span6" onDesktop="span3">
@@ -233,7 +231,7 @@
     <div class="number">3<i class="icon-arrow-up"></i></div>
     <div class="title">Остановленные</div>
     <div class="footer">
-        <a href="#"> Отчет</a>
+        <a> Отчет</a>
     </div>
 </div>
 <div class="span3 statbox blue noMargin" onTablet="span6" onDesktop="span3">
@@ -241,7 +239,7 @@
     <div class="number">5<i class="icon-arrow-up"></i></div>
     <div class="title">Завершенные</div>
     <div class="footer">
-        <a href="#"> Отчет</a>
+        <a> Отчет</a>
     </div>
 </div>
 <div class="span3 statbox yellow" onTablet="span6" onDesktop="span3">
@@ -249,7 +247,7 @@
     <div class="number">32<i class="icon-arrow-down"></i></div>
     <div class="title">Сотрудники</div>
     <div class="footer">
-        <a href="#"> Отчет</a>
+        <a> Отчет</a>
     </div>
 </div>
 
