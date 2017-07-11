@@ -39,19 +39,19 @@
                 </div>
                 <div class="progress">
                     <div class="bar progress-bar progress-success" role="progressbar" aria-valuenow="40"
-                         aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                         aria-valuemin="0" aria-valuemax="100" style="width:${overallReport.informedPercent}%">
                         Информировано ${overallReport.informedPercent}%
                     </div>
                 </div>
                 <div class="progress">
                     <div class="bar progress-bar progress-info" role="progressbar" aria-valuenow="40"
-                         aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                         aria-valuemin="0" aria-valuemax="100" style="width:${overallReport.testedPercent}%">
                         Тестирование ${overallReport.testedPercent}%
                     </div>
                 </div>
                 <div class="progress">
                     <div class="bar progress-bar progress-danger" role="progressbar" aria-valuenow="40"
-                         aria-valuemin="0" aria-valuemax="100" style="width:10%">
+                         aria-valuemin="0" aria-valuemax="100" style="width:${overallReport.controlPercent}%">
                         Контроль ${overallReport.controlPercent}%
                     </div>
                 </div>

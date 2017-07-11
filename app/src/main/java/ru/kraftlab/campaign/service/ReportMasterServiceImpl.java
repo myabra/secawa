@@ -8,15 +8,10 @@ import ru.kraftlab.person.model.ADDepartment;
 import ru.kraftlab.person.service.PersonService;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by Мария on 07.02.2017.
- */
 @Service
 public class ReportMasterServiceImpl implements ReportMasterService {
-    private static final int MAX_REPORTS_COUNT = 3;
     private final PersonService personService;
 
     @Autowired
@@ -25,17 +20,14 @@ public class ReportMasterServiceImpl implements ReportMasterService {
     }
 
     @Override
-    public List<CampaignReport> getTopDepartmentsReports(Campaign campaign) {
+    public List<CampaignReport> getDepartmentsReports(Campaign campaign) {
         List<ADDepartment> departments = new ArrayList<>(personService.getDepartments());
-        //todo param departments count?
-        departments = departments.subList(0, Math.min(departments.size(), 10));
 
         List<CampaignReport> reports = new ArrayList<>();
         for (ADDepartment department : departments) {
             reports.add(new CampaignReport.Builder(campaign, department).buildRandomScores());
         }
-        Collections.shuffle(reports);
-        return reports.subList(0, MAX_REPORTS_COUNT);
+        return reports;
     }
 
     @Override
@@ -46,7 +38,7 @@ public class ReportMasterServiceImpl implements ReportMasterService {
         double sumAverageScore = 0d;
         int sumEmployeeCount = 0;
 
-        List<CampaignReport> allDepartmentReports = getTopDepartmentsReports(campaign);
+        List<CampaignReport> allDepartmentReports = getDepartmentsReports(campaign);
         int reportsCount = allDepartmentReports.size();
 
         for (CampaignReport departmentReport : allDepartmentReports) {

@@ -65,9 +65,9 @@ public class CampaignReport {
         }
 
         public CampaignReport buildRandomScores() {
-            informedPercent = (double) RandomUtils.nextInt(0, 100);
-            testedPercent = (double) RandomUtils.nextInt(0, 100);
-            controlPercent = (double) RandomUtils.nextInt(0, 100);
+            informedPercent = (double) RandomUtils.nextInt(50, 100);
+            testedPercent = (double) RandomUtils.nextInt(30, 100);
+            controlPercent = (double) RandomUtils.nextInt(30, 100);
             averageScore = (double) RandomUtils.nextInt(0, 100);
             return new CampaignReport(this);
         }

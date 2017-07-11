@@ -5,11 +5,8 @@ import ru.kraftlab.campaign.model.CampaignReport;
 
 import java.util.List;
 
-/**
- * Created by Мария on 07.02.2017.
- */
 public interface ReportMasterService {
-    List<CampaignReport> getTopDepartmentsReports(Campaign campaign);
+    List<CampaignReport> getDepartmentsReports(Campaign campaign);
 
     CampaignReport getCompanyReport(Campaign campaign);
 }
